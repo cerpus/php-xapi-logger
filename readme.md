@@ -27,7 +27,7 @@ In Laravel 5.5 and up the auto discovery should kick in when requiring the packa
 ```
 
 ## Usage
-Example using an event based approach since processing the raw statement requires calls across the network. 
+Example using an event based approach using queues since processing the raw statement requires calls across the network. 
 
 For a full example take a peek in the [EdStep source code](https://stash.cerpus.com/projects/BRAIN/repos/cerpuscourse/browse).
 ```
