@@ -156,8 +156,8 @@ class LogXApiStatementToLrs implements ShouldQueue
                 throw new \Exception($logger->getErrorMessage(), $logger->getErrorCode());
             }
         } catch (\Throwable $exception) {
-            Log::error(__METHOD__ . ': (' . $exception->getCode() . ') ' . $exception->getMessage());
-            $this->release($this->attempts() * 30); // Try again in tries * 30 seconds, max attemts is controlled when starting the queue worker(s)
+            Log::error(__METHOD__ . ':[Attempt #:' . $this->attempts() . '] (' . $exception->getCode() . ') ' . $exception->getMessage());
+            $this->release($this->attempts() * 30); // Release back into queue, but wait a while before trying again. 
         }
     }
 }
