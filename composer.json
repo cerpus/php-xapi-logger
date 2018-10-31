@@ -1,0 +1,37 @@
+{
+  "name": "cerpus/xapi-logger",
+  "description": "A Laravel package to help you log xAPI statements received from Content Author to our LRS using the correct format.",
+  "type": "library",
+  "license": "Proprietary",
+  "authors": [
+    {
+      "name": "Odd-Arne Johansen",
+      "email": "odd-arne.johansen@cerpus.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "guzzlehttp/guzzle": "^6.3",
+    "illuminate/support": ">=5.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cerpus\\xAPI\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Cerpus\\xAPI\\Test\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Cerpus\\xAPI\\LRSLoggerServiceProvider"
+      ]
+    }
+  }
+}
