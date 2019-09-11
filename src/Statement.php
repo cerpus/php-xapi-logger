@@ -5,7 +5,6 @@ namespace Cerpus\xAPI;
 use Log;
 use GuzzleHttp\Client;
 use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
 use Cerpus\xAPI\Mappers\OfkMapper;
 
 class Statement
@@ -100,7 +99,10 @@ class Statement
 
             $tags = json_decode($this->client->get('tags')->getBody());
         } catch (\Throwable $exception) {
-            Log::error(__METHOD__ . ': (' . $exception->getCode() . ') ' . $exception->getMessage());
+            // A 404 just means that no metatags were found and this is not an error. Log everything else.
+            if ($exception->getCode() !== 404) {
+                Log::error(__METHOD__ . ': (' . $exception->getCode() . ') ' . $exception->getMessage());
+            }
         }
 
         return $tags;
