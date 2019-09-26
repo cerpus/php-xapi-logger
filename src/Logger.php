@@ -45,7 +45,7 @@ class Logger
                 'X-Experience-API-Version' => '1.0.1',
             ],
             'auth' => [$this->key, $this->secret], // Basic auth
-            'timeout' => 10.0, // 10 seconds
+            'timeout' => 30.0, // 30 seconds
         ]);
     }
 

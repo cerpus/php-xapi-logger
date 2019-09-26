@@ -20,7 +20,7 @@ class OfkMapper
         $ofkTags = $this->filterOfkTags($this->tags);
 
         $activities = collect($ofkTags)->map(function ($tag) {
-            $id = 'https://lmbase.no/avt/area-within-the-map/' . $tag;
+            $id = 'https://fagkart.no/avt/area-within-the-map/' . $tag;
             return new Activity($id);
         })->toArray();
 
